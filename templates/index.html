@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentiment Analyzer</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- TensorFlow + Toxicity -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h1 class="mb-2">Sentiment Analyzer</h1>
+        <p class="text-muted" style="text-align: left;">Detects text that contains toxic content such as threatening language, insults, obscenities, identity-based hate, or sexually explicit language</p>
+
+        <!-- Message Input -->
+        <textarea id="messageInput" class="form-control mb-2" rows="4" placeholder="Type your message here..."></textarea>
+        <p class="form-text text-muted">Keep input to 16 words or less for best results.</p>
+
+        <!-- Analyze Button -->
+        <button id="analyzeBtn" class="btn btn-primary" disabled onclick="analyzeMessage()">Analyze</button>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="mt-3">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-2 mb-0 text-muted">Loading model...</p>
+        </div>
+
+        <!-- Result -->
+        <div id="result" class="alert d-none mt-4">
+
+          <p class="mb-0" id="verdict"></p>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
