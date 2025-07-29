@@ -44,7 +44,6 @@ async function analyzeMessage() {
 
   // Update UI
   const resultDiv = document.getElementById("result");
-
   const verdictEl = document.getElementById("verdict");
 
   if (toxicLabels.size === 0) {
@@ -56,9 +55,7 @@ async function analyzeMessage() {
       .map(label => label.replace(/_/g, ' '))
       .map(label => label.charAt(0).toUpperCase() + label.slice(1));
 
-
     verdictEl.textContent = `⚠️ Detected: ${labels.join(', ')}`;
- 
     resultDiv.className = "alert alert-danger mt-4";
   }
 
